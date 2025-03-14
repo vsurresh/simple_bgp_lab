@@ -1,3 +1,4 @@
 nornir
+nornir_utils
 nornir_napalm
 nornir_jinja2
