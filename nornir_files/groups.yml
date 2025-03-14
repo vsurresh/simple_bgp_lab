@@ -1,0 +1,8 @@
+---
+arista:
+  connection_options:
+    napalm:
+      platform: eos
+      extras:
+        optional_args:
+          transport: ssh
