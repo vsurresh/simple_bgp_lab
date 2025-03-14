@@ -1,0 +1,27 @@
+name: bgp
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 192.168.100.0/24
+
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.32.2
+  nodes:
+    eos-01:
+      kind: ceos
+      mgmt-ipv4: 192.168.100.11
+    eos-02:
+      kind: ceos
+      mgmt-ipv4: 192.168.100.12
+    eos-03:
+      kind: ceos
+      mgmt-ipv4: 192.168.100.13
+    eos-04:
+      kind: ceos
+      mgmt-ipv4: 192.168.100.14
+  links:
+    - endpoints: ["eos-01:eth1", "eos-03:eth1"]
+    - endpoints: ["eos-02:eth1", "eos-03:eth2"]
+    - endpoints: ["eos-04:eth1", "eos-03:eth3"]

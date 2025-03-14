@@ -1,0 +1,70 @@
+---
+eos-01:
+  hostname: 192.168.100.11
+  groups:
+    - arista
+  data:
+    interfaces:
+      - name: eth1
+        description: eos-03
+        ip: 12.12.12.1 255.255.255.0
+    bgp:
+      asn: 1000
+      neighbours:
+        - ip: 12.12.12.2
+          asn: 200
+
+eos-02:
+  hostname: 192.168.100.12
+  groups:
+    - arista
+  data:
+    interfaces:
+      - name: eth1
+        description: eos-03
+        ip: 12.12.13.1 255.255.255.0
+    bgp:
+      asn: 100
+      neighbours:
+        - ip: 12.12.13.2
+          asn: 200
+
+eos-03:
+  hostname: 192.168.100.13
+  groups:
+    - arista
+  data:
+    interfaces:
+      - name: eth1
+        description: eos-01
+        ip: 12.12.12.2 255.255.255.0
+      - name: eth2
+        description: eos-02
+        ip: 12.12.13.2 255.255.255.0
+      - name: eth3
+        description: eos-03
+        ip: 12.12.14.2 255.255.255.0
+    bgp:
+      asn: 200
+      neighbours:
+        - ip: 12.12.12.1
+          asn: 1000
+        - ip: 12.12.13.1
+          asn: 100
+        - ip: 12.12.14.1
+          asn: 2000
+
+eos-04:
+  hostname: 192.168.100.14
+  groups:
+    - arista
+  data:
+    interfaces:
+      - name: eth1
+        description: eos-03
+        ip: 12.12.14.1 255.255.255.0
+    bgp:
+      asn: 2000
+      neighbours:
+        - ip: 12.12.14.2
+          asn: 200
